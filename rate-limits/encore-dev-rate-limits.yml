@@ -1,0 +1,78 @@
+specVersion: "0.1"
+spec: API Commons Rate Limits 0.1
+provider:
+  aid: encore-dev
+  name: Encore
+  url: https://encore.cloud/pricing
+notes: |
+  Encore does not publish a public REST API with per-key rate limiting. The numeric usage caps on
+  Encore Cloud are tied to plan tier and apply to platform-side resources (build concurrency,
+  ingested trace events, environment count) rather than per-second request quotas on a hosted API.
+limits:
+- id: concurrent-builds-free
+  scope: account
+  plan: free
+  policy: concurrency
+  value: 1
+  description: Free Encore Cloud accounts are limited to one concurrent CI build.
+- id: concurrent-builds-pro
+  scope: account
+  plan: pro
+  policy: concurrency
+  value: 2
+  upgradeable: true
+  description: Pro accounts start with 2 concurrent builds and can purchase more.
+- id: trace-events-free
+  scope: account
+  plan: free
+  policy: quota
+  window: month
+  value: 1000000
+  unit: events
+  description: 1M distributed tracing events per month on the Free tier.
+- id: trace-events-pro
+  scope: account
+  plan: pro
+  policy: quota
+  window: month
+  value: 20000000
+  unit: events
+  overage:
+    price: 1.2
+    unit: per 1M events
+  description: 20M distributed tracing events per month included on Pro; overage billed at $1.2 per 1M.
+- id: dev-environments-free
+  scope: account
+  plan: free
+  policy: quota
+  value: 2
+  unit: environments
+  description: 2 free Encore Cloud development environments on Free.
+- id: dev-environments-pro
+  scope: account
+  plan: pro
+  policy: quota
+  value: unlimited
+  unit: environments
+- id: retention-free
+  scope: account
+  plan: free
+  policy: retention
+  value: 7
+  unit: days
+  description: Logs and trace retention window on Free.
+- id: retention-pro
+  scope: account
+  plan: pro
+  policy: retention
+  value: 30
+  unit: days
+- id: app-level-rate-limit
+  scope: application
+  policy: configurable
+  description: |
+    Per-endpoint rate limiting is implemented in user code (typically via middleware) inside Encore
+    applications. Encore does not impose a per-application request rate limit.
+sources:
+- https://encore.cloud/pricing
+updated: '2026-05-24'

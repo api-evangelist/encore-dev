@@ -1,0 +1,57 @@
+extends:
+- spectral:oas
+rules:
+  encore-info-title:
+    description: Encore API specs should set info.title.
+    severity: error
+    given: $.info
+    then:
+      field: title
+      function: truthy
+  encore-info-version:
+    description: Encore API specs should set info.version reflecting the framework or platform version.
+    severity: error
+    given: $.info
+    then:
+      field: version
+      function: truthy
+  encore-operation-operation-id:
+    description: Every operation must have a camelCase operationId.
+    severity: error
+    given: $.paths.*.[get,put,post,delete,patch,options,head]
+    then:
+      field: operationId
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-zA-Z0-9]+$'
+  encore-operation-summary:
+    description: Every operation must have a Title Case summary.
+    severity: error
+    given: $.paths.*.[get,put,post,delete,patch,options,head]
+    then:
+      field: summary
+      function: pattern
+      functionOptions:
+        match: '^([A-Z][a-zA-Z0-9]*)(\s[A-Z][a-zA-Z0-9]*)*$'
+  encore-operation-description:
+    description: Every operation must have a description.
+    severity: warn
+    given: $.paths.*.[get,put,post,delete,patch,options,head]
+    then:
+      field: description
+      function: truthy
+  encore-canonical-error-codes:
+    description: Encore error responses should include a `code` field carrying a canonical error code (invalid_argument, unauthenticated, permission_denied, not_found, already_exists, internal, unavailable).
+    severity: info
+    given: $.components.schemas.Error
+    then:
+      field: properties.code
+      function: truthy
+  encore-path-lower-kebab:
+    description: Paths should use lowercase kebab-case segments.
+    severity: warn
+    given: $.paths.*~
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[/a-z0-9:_\-{}\.\*\!]+$'

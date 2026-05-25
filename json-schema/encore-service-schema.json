@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/encore-dev/main/json-schema/encore-service-schema.json",
+  "title": "Encore Service",
+  "description": "Schema describing an Encore service — a folder containing encore.service.ts (TypeScript) or a Go package annotated with //encore:service.",
+  "type": "object",
+  "required": ["name"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Service name (the value passed to new Service() in encore.service.ts)."
+    },
+    "framework": {
+      "type": "string",
+      "enum": ["encore.ts", "encore.go"]
+    },
+    "endpoints": {
+      "type": "array",
+      "items": {
+        "$ref": "encore-api-endpoint-schema.json"
+      }
+    },
+    "databases": {
+      "type": "array",
+      "description": "PostgreSQL databases declared in the service.",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": { "type": "string" },
+          "migrations_dir": { "type": "string" }
+        }
+      }
+    },
+    "pubsub_topics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": { "type": "string" },
+          "delivery_guarantee": {
+            "type": "string",
+            "enum": ["at-least-once", "exactly-once"]
+          }
+        }
+      }
+    },
+    "buckets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": { "type": "string" },
+          "versioned": { "type": "boolean" },
+          "public": { "type": "boolean" }
+        }
+      }
+    },
+    "cron_jobs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "schedule", "endpoint"],
+        "properties": {
+          "id": { "type": "string" },
+          "schedule": { "type": "string", "description": "Cron expression or `every` shorthand." },
+          "endpoint": { "type": "string" }
+        }
+      }
+    },
+    "middleware": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}

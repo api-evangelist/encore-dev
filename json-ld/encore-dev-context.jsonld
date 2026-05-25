@@ -1,0 +1,59 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "encore": "https://encore.dev/ns#",
+    "Application": "encore:Application",
+    "Service": "encore:Service",
+    "Endpoint": "encore:Endpoint",
+    "Database": "encore:Database",
+    "PubSubTopic": "encore:PubSubTopic",
+    "PubSubSubscription": "encore:PubSubSubscription",
+    "Bucket": "encore:Bucket",
+    "Cache": "encore:Cache",
+    "CronJob": "encore:CronJob",
+    "Secret": "encore:Secret",
+    "Environment": "encore:Environment",
+    "Deployment": "encore:Deployment",
+    "TraceEvent": "encore:TraceEvent",
+    "name": "schema:name",
+    "description": "schema:description",
+    "framework": {
+      "@id": "encore:framework",
+      "@type": "@vocab"
+    },
+    "encore.ts": "encore:framework/encore.ts",
+    "encore.go": "encore:framework/encore.go",
+    "service": {
+      "@id": "encore:service",
+      "@type": "@id"
+    },
+    "endpoints": {
+      "@id": "encore:endpoints",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "method": "schema:httpMethod",
+    "path": "encore:path",
+    "expose": "encore:expose",
+    "auth": "encore:auth",
+    "sensitive": "encore:sensitive",
+    "raw": "encore:raw",
+    "streaming": "encore:streaming",
+    "cloud": {
+      "@id": "encore:cloud",
+      "@type": "@vocab"
+    },
+    "aws": "encore:cloud/aws",
+    "gcp": "encore:cloud/gcp",
+    "self-hosted": "encore:cloud/self-hosted",
+    "encore-cloud": "encore:cloud/encore",
+    "deliveryGuarantee": {
+      "@id": "encore:deliveryGuarantee",
+      "@type": "@vocab"
+    },
+    "at-least-once": "encore:delivery/at-least-once",
+    "exactly-once": "encore:delivery/exactly-once",
+    "schedule": "encore:schedule"
+  }
+}

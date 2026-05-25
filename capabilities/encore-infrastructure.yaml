@@ -1,0 +1,34 @@
+name: encore-infrastructure
+description: |
+  Encore's Infrastructure from Code capability — declare PostgreSQL databases, Pub/Sub topics and
+  subscriptions, object storage buckets, caches, cron jobs, and secrets as typed code primitives
+  that Encore provisions locally (Docker-free) and on AWS or GCP via Encore Cloud.
+provider: encore-dev
+inputs:
+- name: kind
+  type: string
+  enum: [database, pubsub_topic, pubsub_subscription, bucket, cache, cron_job, secret]
+  required: true
+- name: name
+  type: string
+  required: true
+- name: service
+  type: string
+  description: Owning Encore service.
+- name: config
+  type: object
+  description: Resource-specific configuration (delivery_guarantee, retention, versioned, schedule, etc.).
+outputs:
+- name: resource_id
+  type: string
+- name: provisioning
+  type: object
+  description: Resolved provisioning targets per environment (local, AWS, GCP).
+operations:
+- declare_database
+- declare_pubsub_topic
+- declare_pubsub_subscription
+- declare_bucket
+- declare_cache_keyspace
+- declare_cron_job
+- declare_secret

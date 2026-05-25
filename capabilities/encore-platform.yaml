@@ -1,0 +1,35 @@
+name: encore-platform
+description: |
+  Encore Cloud control surface — manage applications, environments, deployments, preview environments,
+  secrets, and provisioning into the customer's AWS or GCP account.
+provider: encore-dev
+inputs:
+- name: app_id
+  type: string
+  required: true
+- name: environment
+  type: string
+  description: Target environment name (development, preview, staging, production, or custom).
+- name: commit
+  type: string
+  description: Git commit SHA to deploy.
+- name: cloud
+  type: string
+  enum: [encore, aws, gcp, self-hosted]
+outputs:
+- name: deployment_id
+  type: string
+- name: status
+  type: string
+- name: build_url
+  type: string
+operations:
+- list_apps
+- list_environments
+- create_environment
+- list_deployments
+- trigger_deployment
+- list_secrets
+- set_secret
+- create_preview_environment
+- promote_deployment

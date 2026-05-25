@@ -1,0 +1,67 @@
+specVersion: "0.1"
+spec: API Commons FinOps 0.1
+aligned_with:
+- FinOps Framework
+- FOCUS Data Spec 1.0
+provider:
+  aid: encore-dev
+  name: Encore
+  url: https://encore.cloud/pricing
+billing_model: hybrid
+currency: USD
+billing_cycle: monthly
+charge_categories:
+- id: subscription-seat
+  type: Subscription
+  category: Compute
+  unit: member per month
+  price: 49
+  description: Pro plan per-seat subscription on Encore Cloud.
+- id: subscription-environment
+  type: Usage
+  category: Environment
+  unit: environment per month
+  price: 99
+  description: Each provisioned AWS or GCP environment on Pro.
+- id: subscription-resource
+  type: Usage
+  category: Infrastructure
+  unit: resource per month
+  price: 2.5
+  description: Charged per provisioned service, database, cron job, cache, bucket, Pub/Sub topic, Pub/Sub subscription, or secret in an AWS or GCP environment.
+- id: tracing-events
+  type: Usage
+  category: Observability
+  unit: 1M events
+  price: 1.2
+  included: 20000000
+  included_unit: events per month
+  description: Distributed tracing event ingestion overage above the 20M / month included on Pro.
+- id: tracing-events-free
+  type: Free
+  category: Observability
+  unit: events per month
+  price: 0
+  included: 1000000
+  description: Free tier distributed tracing events allowance.
+cloud_passthrough:
+  description: |
+    Encore Cloud provisions infrastructure into the customer's own AWS or GCP account. AWS and GCP
+    consumption (compute, databases, storage, networking) is billed directly by the underlying
+    hyperscaler and does not flow through Encore. Customers should reconcile FinOps data from both
+    Encore Cloud invoices and AWS Cost & Usage Reports or GCP Billing Export.
+  providers:
+  - AWS
+  - GCP
+focus_mapping:
+  ChargeCategory:
+  - Subscription
+  - Usage
+  ServiceCategory:
+  - Other Services
+  - Developer Tools
+  PricingCategory:
+  - Standard
+sources:
+- https://encore.cloud/pricing
+updated: '2026-05-24'

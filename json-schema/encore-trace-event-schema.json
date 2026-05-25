@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/encore-dev/main/json-schema/encore-trace-event-schema.json",
+  "title": "Encore Trace Event",
+  "description": "Schema describing a single span/event captured by Encore's distributed tracing for an API request, database query, Pub/Sub publish, cron tick, or outbound HTTP call.",
+  "type": "object",
+  "required": ["trace_id", "span_id", "kind", "started_at"],
+  "properties": {
+    "trace_id": { "type": "string" },
+    "span_id": { "type": "string" },
+    "parent_span_id": { "type": ["string", "null"] },
+    "kind": {
+      "type": "string",
+      "enum": ["api_request", "rpc_call", "db_query", "db_transaction", "pubsub_publish", "pubsub_message", "cron_run", "http_call", "log"]
+    },
+    "service": { "type": "string" },
+    "endpoint": { "type": "string" },
+    "started_at": { "type": "string", "format": "date-time" },
+    "duration_ns": { "type": "integer" },
+    "status": {
+      "type": "string",
+      "enum": ["ok", "error"]
+    },
+    "error": {
+      "type": ["object", "null"],
+      "properties": {
+        "code": { "type": "string" },
+        "message": { "type": "string" },
+        "stack": { "type": "string" }
+      }
+    },
+    "attributes": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,75 @@
+specVersion: "0.1"
+spec: API Commons Plans 0.1
+provider:
+  aid: encore-dev
+  name: Encore
+  url: https://encore.cloud/pricing
+currency: USD
+billing_cycle: monthly
+plans:
+- id: free
+  name: Free
+  price: 0
+  description: Free forever Encore Cloud tier for individual developers and evaluation.
+  features:
+  - 2 free Encore Cloud development environments
+  - 1M distributed tracing events per month
+  - 7-day logs and trace retention
+  - 1 concurrent build
+  - Community Discord support
+  limits:
+    aws_gcp_environments: 0
+    concurrent_builds: 1
+    trace_events_per_month: 1000000
+    retention_days: 7
+- id: pro
+  name: Pro
+  price: 49
+  unit: per member per month
+  description: Per-seat Encore Cloud plan with managed AWS / GCP infrastructure provisioning, preview environments, and higher tracing limits.
+  features:
+  - Unlimited development environments
+  - Preview environment per pull request
+  - Automatic AWS or GCP infrastructure provisioning
+  - 20M distributed tracing events per month included
+  - 30-day logs and trace retention
+  - 2 concurrent builds (upgradeable)
+  - Email support, 14-day onboarding, private Slack
+  limits:
+    concurrent_builds: 2
+    trace_events_per_month: 20000000
+    retention_days: 30
+  add_ons:
+  - id: aws-gcp-environment
+    name: AWS / GCP Environment
+    price: 99
+    unit: per environment per month
+  - id: provisioned-resource
+    name: Provisioned Resource
+    price: 2.5
+    unit: per resource per month
+    description: Charged per service, database, cron job, cache, bucket, Pub/Sub topic / subscription, or secret deployed into an AWS or GCP environment.
+  - id: extra-trace-events
+    name: Extra Distributed Tracing Events
+    price: 1.2
+    unit: per 1M events
+- id: enterprise
+  name: Enterprise
+  price: null
+  description: Custom Enterprise plan with bespoke security, compliance, and support guarantees.
+  features:
+  - All Pro features
+  - Custom concurrent builds
+  - Custom distributed tracing limits
+  - Least-privilege IAM management
+  - Self-hosted preview environments
+  - Custom network security rules
+  - Custom RBAC
+  - CI/CD customization
+  - SOC 2 compliance assistance
+  - Technical Account Manager
+  - Uptime guarantees and custom SLAs
+sources:
+- https://encore.cloud/pricing
+- https://encore.dev
+updated: '2026-05-24'

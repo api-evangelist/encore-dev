@@ -1,0 +1,46 @@
+name: encore-framework
+description: |
+  Declarative framework primitives that Encore.ts and Encore.go applications use to define services,
+  expose APIs, and validate requests and responses. Captures the api() / //encore:api surface as a
+  Naftiko capability so AI agents can reason about Encore-built backends.
+provider: encore-dev
+inputs:
+- name: service
+  type: string
+  description: Encore service name (folder containing encore.service.ts or //encore:service Go package).
+  required: true
+- name: endpoint
+  type: string
+  description: Endpoint name as declared in source.
+  required: true
+- name: method
+  type: string
+  enum: [GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS]
+  required: true
+- name: path
+  type: string
+  description: Route path, supports :param and *wildcard placeholders.
+  required: true
+- name: expose
+  type: boolean
+  description: Whether the endpoint is reachable from outside the application.
+- name: auth
+  type: boolean
+  description: Whether Encore enforces a valid auth context before invoking the endpoint.
+- name: sensitive
+  type: boolean
+  description: Whether request/response payloads should be redacted in traces.
+outputs:
+- name: endpoint_id
+  type: string
+- name: request_schema
+  type: object
+- name: response_schema
+  type: object
+operations:
+- declare_endpoint
+- declare_service
+- declare_raw_endpoint
+- declare_streaming_endpoint
+- declare_auth_handler
+- declare_middleware

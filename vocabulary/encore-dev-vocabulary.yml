@@ -1,0 +1,69 @@
+name: Encore Vocabulary
+provider: encore-dev
+description: Domain vocabulary for the Encore backend framework and Encore Cloud platform.
+terms:
+- term: Encore.ts
+  definition: TypeScript backend framework with a Rust-based runtime that compiles to a single binary for production.
+  type: Framework
+- term: Encore.go
+  definition: Go backend framework using //encore:api and //encore:service annotations parsed at build time.
+  type: Framework
+- term: Encore Cloud
+  definition: Hosted developer platform that provisions infrastructure on AWS or GCP and runs CI/CD, traces, metrics, and previews.
+  type: Platform
+- term: Infrastructure from Code
+  definition: Encore's approach to declaring infrastructure resources as typed code primitives that are interpreted at build time.
+  type: Concept
+- term: api()
+  definition: TypeScript helper that wraps a function as an Encore endpoint with declarative method, path, expose, auth, and sensitive options.
+  type: Primitive
+- term: //encore:api
+  definition: Go directive that marks a function as an Encore endpoint.
+  type: Primitive
+- term: Service
+  definition: An Encore service — a folder with encore.service.ts or a Go package with //encore:service.
+  type: Primitive
+- term: Raw Endpoint
+  definition: An api.raw() endpoint that receives the underlying request and response writer directly, used for webhooks and low-level HTTP.
+  type: Primitive
+- term: Streaming Endpoint
+  definition: A WebSocket-style streaming endpoint exposed by Encore.ts.
+  type: Primitive
+- term: Pub/Sub Topic
+  definition: An Encore Pub/Sub topic — backed locally by an in-memory broker and in production by AWS SNS or GCP Pub/Sub.
+  type: Resource
+- term: Bucket
+  definition: An Encore object storage bucket — backed locally by a filesystem and in production by S3 or GCS.
+  type: Resource
+- term: Cron Job
+  definition: A scheduled endpoint invocation declared with a cron expression or shorthand.
+  type: Resource
+- term: Secret
+  definition: A named secret value injected into the application at runtime, managed per environment.
+  type: Resource
+- term: Environment
+  definition: A deployment target — development, preview, staging, production — on Encore Cloud or self-hosted.
+  type: Platform
+- term: Preview Environment
+  definition: An ephemeral environment automatically provisioned per pull request on the Pro plan.
+  type: Platform
+- term: Development Dashboard
+  definition: The local web UI exposed by `encore run` showing traces, services, the API explorer, the database explorer, and the architecture flow diagram.
+  type: Tool
+- term: Flow Diagram
+  definition: The auto-generated architecture diagram showing services, endpoints, and infrastructure resources.
+  type: Tool
+- term: Service Catalog
+  definition: The auto-generated catalog of services, endpoints, and request/response schemas.
+  type: Tool
+- term: MCP Server
+  definition: Encore's built-in Model Context Protocol server exposing the running application to AI agents.
+  type: Tool
+- term: encore CLI
+  definition: The `encore` command-line tool (encore app create, encore run, encore build docker, encore mcp).
+  type: Tool
+sources:
+- https://encore.dev/docs/ts
+- https://encore.dev/docs/go
+- https://encore.cloud/pricing
+updated: '2026-05-24'

@@ -1,0 +1,41 @@
+name: encore-observability
+description: |
+  Encore's built-in observability surface — distributed tracing, metrics, structured logs, the local
+  development dashboard, the service catalog, and the architecture flow diagram. Captures the trace
+  query surface in Encore Cloud and the forwarding integrations to Datadog, Grafana, and Sentry.
+provider: encore-dev
+inputs:
+- name: app_id
+  type: string
+  required: true
+- name: environment
+  type: string
+- name: trace_id
+  type: string
+- name: time_range
+  type: object
+  properties:
+    from:
+      type: string
+      format: date-time
+    to:
+      type: string
+      format: date-time
+outputs:
+- name: traces
+  type: array
+- name: spans
+  type: array
+- name: metrics
+  type: array
+- name: logs
+  type: array
+operations:
+- query_traces
+- get_trace
+- query_metrics
+- query_logs
+- list_services
+- get_flow_diagram
+- configure_log_forwarder
+- configure_metrics_forwarder

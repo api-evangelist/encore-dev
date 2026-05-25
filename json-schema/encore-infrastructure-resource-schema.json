@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/encore-dev/main/json-schema/encore-infrastructure-resource-schema.json",
+  "title": "Encore Infrastructure Resource",
+  "description": "Schema describing a declarative infrastructure resource produced by Encore's Infrastructure from Code parser.",
+  "type": "object",
+  "required": ["kind", "name"],
+  "properties": {
+    "kind": {
+      "type": "string",
+      "enum": ["database", "pubsub_topic", "pubsub_subscription", "bucket", "cache", "cron_job", "secret"]
+    },
+    "name": {
+      "type": "string"
+    },
+    "service": {
+      "type": "string",
+      "description": "Encore service that owns the resource."
+    },
+    "provisioning": {
+      "type": "object",
+      "properties": {
+        "local": {
+          "type": "string",
+          "description": "How the resource is provisioned locally (e.g. docker-postgres, in-memory-pubsub, local-bucket)."
+        },
+        "aws": {
+          "type": "string",
+          "description": "AWS managed resource Encore Cloud provisions (e.g. rds-postgres, sqs+sns, s3)."
+        },
+        "gcp": {
+          "type": "string",
+          "description": "GCP managed resource Encore Cloud provisions (e.g. cloud-sql-postgres, pubsub, gcs)."
+        }
+      }
+    },
+    "config": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Resource-specific configuration (delivery guarantee, retention, versioning, schedule, etc.)."
+    }
+  },
+  "additionalProperties": false
+}

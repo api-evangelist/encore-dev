@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/encore-dev/main/json-schema/encore-api-endpoint-schema.json",
+  "title": "Encore API Endpoint",
+  "description": "Schema describing an Encore api() / //encore:api endpoint declaration as parsed by Encore.ts or Encore.go.",
+  "type": "object",
+  "required": ["name", "service", "method", "path"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Endpoint name as declared in source."
+    },
+    "service": {
+      "type": "string",
+      "description": "Name of the Encore service this endpoint belongs to."
+    },
+    "method": {
+      "type": "string",
+      "enum": ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"]
+    },
+    "path": {
+      "type": "string",
+      "description": "Route path supporting :param and *wildcard placeholders.",
+      "examples": ["/hello/:name", "/orders", "/!fallback"]
+    },
+    "expose": {
+      "type": "boolean",
+      "description": "If true, endpoint is reachable from outside the Encore application (public).",
+      "default": false
+    },
+    "auth": {
+      "type": "boolean",
+      "description": "If true, Encore requires a valid auth context before invoking the endpoint.",
+      "default": false
+    },
+    "sensitive": {
+      "type": "boolean",
+      "description": "If true, request and response payloads are redacted in traces.",
+      "default": false
+    },
+    "raw": {
+      "type": "boolean",
+      "description": "If true, declared via api.raw() — receives request and response writer directly.",
+      "default": false
+    },
+    "streaming": {
+      "type": "boolean",
+      "description": "If true, endpoint is a streaming/WebSocket endpoint.",
+      "default": false
+    },
+    "request_schema": {
+      "type": "object",
+      "description": "JSON Schema derived from the declared TypeScript request interface or Go struct.",
+      "additionalProperties": true
+    },
+    "response_schema": {
+      "type": "object",
+      "description": "JSON Schema derived from the declared TypeScript response interface or Go struct.",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}
