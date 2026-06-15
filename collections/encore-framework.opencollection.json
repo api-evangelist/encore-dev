@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Encore Framework API",
+    "version": "1.57"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health Check",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4000/__encore/healthz"
+      },
+      "docs": "Built-in liveness endpoint exposed by every Encore application for platform-level health probing."
+    },
+    {
+      "info": {
+        "name": "Get Application Metadata",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4000/__encore/meta"
+      },
+      "docs": "Returns metadata describing the running Encore application — services, endpoints, databases, Pub/Sub topics, and cron jobs — as derived from the parsed source."
+    },
+    {
+      "info": {
+        "name": "Invoke An Encore Endpoint",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "http://localhost:4000/:service/:endpoint",
+        "params": [
+          {
+            "name": "service",
+            "value": "",
+            "type": "path",
+            "description": "The Encore service name (the folder containing encore.service.ts or a Go package with //encore:service)."
+          },
+          {
+            "name": "endpoint",
+            "value": "",
+            "type": "path",
+            "description": "The api() / //encore:api endpoint name within the service."
+          }
+        ]
+      },
+      "docs": "Conceptual route showing how Encore exposes any api() declaration with `expose: true`.\nThe real method, path, request schema, and response schema are derived from the developer's\nTypeScript interface or Go struct at build time.\n"
+    }
+  ],
+  "bundled": true
+}

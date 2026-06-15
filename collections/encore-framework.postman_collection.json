@@ -1,0 +1,369 @@
+{
+  "item": [
+    {
+      "id": "e94765a8-df1b-4d70-914b-8efff0b383b6",
+      "name": "Health Check",
+      "request": {
+        "name": "Health Check",
+        "description": {
+          "content": "Built-in liveness endpoint exposed by every Encore application for platform-level health probing.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "__encore",
+            "healthz"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "6bedbb90-2540-446f-8fcd-6770d53a145c",
+          "name": "Application is healthy.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "__encore",
+                "healthz"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"code\": \"ok\",\n  \"message\": \"Healthy\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "e45c1d92-a201-483d-a183-8d72e026fbff",
+      "name": "Get Application Metadata",
+      "request": {
+        "name": "Get Application Metadata",
+        "description": {
+          "content": "Returns metadata describing the running Encore application — services, endpoints, databases, Pub/Sub topics, and cron jobs — as derived from the parsed source.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "__encore",
+            "meta"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "49eafd5b-fdc3-4a9c-b391-65294f44e03a",
+          "name": "Application metadata.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "__encore",
+                "meta"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"app_id\": \"string\",\n  \"services\": [\n    {\n      \"name\": \"string\",\n      \"endpoints\": [\n        {\n          \"name\": \"string\",\n          \"method\": \"GET\",\n          \"path\": \"/hello/:name\",\n          \"expose\": false,\n          \"auth\": true,\n          \"sensitive\": true,\n          \"raw\": false\n        },\n        {\n          \"name\": \"string\",\n          \"method\": \"GET\",\n          \"path\": \"/hello/:name\",\n          \"expose\": true,\n          \"auth\": false,\n          \"sensitive\": true,\n          \"raw\": false\n        }\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"endpoints\": [\n        {\n          \"name\": \"string\",\n          \"method\": \"GET\",\n          \"path\": \"/hello/:name\",\n          \"expose\": false,\n          \"auth\": false,\n          \"sensitive\": true,\n          \"raw\": false\n        },\n        {\n          \"name\": \"string\",\n          \"method\": \"GET\",\n          \"path\": \"/hello/:name\",\n          \"expose\": true,\n          \"auth\": true,\n          \"sensitive\": false,\n          \"raw\": true\n        }\n      ]\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "0a8574c5-f209-491d-9a3f-28941121f906",
+      "name": "Invoke An Encore Endpoint",
+      "request": {
+        "name": "Invoke An Encore Endpoint",
+        "description": {
+          "content": "Conceptual route showing how Encore exposes any api() declaration with `expose: true`.\nThe real method, path, request schema, and response schema are derived from the developer's\nTypeScript interface or Go struct at build time.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            ":service",
+            ":endpoint"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "service",
+              "description": "(Required) The Encore service name (the folder containing encore.service.ts or a Go package with //encore:service)."
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "endpoint",
+              "description": "(Required) The api() / //encore:api endpoint name within the service."
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "2c79d57d-72b9-4eeb-93f8-5358f9c15300",
+          "name": "Endpoint response shaped by the application's declared response type.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                ":service",
+                ":endpoint"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service",
+                  "description": "(Required) The Encore service name (the folder containing encore.service.ts or a Go package with //encore:service)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "endpoint",
+                  "description": "(Required) The api() / //encore:api endpoint name within the service."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"key_0\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "4396daf0-1e10-40cf-ac93-ebf5bcd1e343",
+          "name": "Validation error — request did not match the declared request schema.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                ":service",
+                ":endpoint"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service",
+                  "description": "(Required) The Encore service name (the folder containing encore.service.ts or a Go package with //encore:service)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "endpoint",
+                  "description": "(Required) The api() / //encore:api endpoint name within the service."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"code\": \"invalid_argument\",\n  \"message\": \"Field \\\"name\\\" must not be empty.\",\n  \"details\": [\n    {\n      \"key_0\": 5945.352493426936,\n      \"key_1\": 9071.009459814166\n    },\n    {\n      \"key_0\": 3480.730362449429\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "d6ea8699-5b38-420f-8361-27579c5cb611",
+          "name": "Unauthenticated — endpoint requires auth and no valid auth context was provided.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                ":service",
+                ":endpoint"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service",
+                  "description": "(Required) The Encore service name (the folder containing encore.service.ts or a Go package with //encore:service)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "endpoint",
+                  "description": "(Required) The api() / //encore:api endpoint name within the service."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"code\": \"invalid_argument\",\n  \"message\": \"Field \\\"name\\\" must not be empty.\",\n  \"details\": [\n    {\n      \"key_0\": 6102,\n      \"key_1\": 5025.204734241048\n    },\n    {\n      \"key_0\": 9450.63100719036,\n      \"key_1\": \"string\",\n      \"key_2\": 2294.5018181878972\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:4000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6bbec132-7a14-4168-8681-3eff45d5ee32",
+    "name": "Encore Framework API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Conceptual OpenAPI describing the runtime HTTP surface that the Encore framework\n(Encore.ts and Encore.go) exposes for every Encore application. This is not a\nsingle hosted API — it is the per-application surface generated by the framework\nwhen an api() / //encore:api declaration is parsed. Real endpoints, paths, and\nschemas are app-specific.\n\n\nContact Support:\n Name: Encore",
+      "type": "text/plain"
+    }
+  }
+}
