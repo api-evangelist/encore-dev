@@ -214,16 +214,16 @@ common:
     type: Documentation
   - url: https://encore.dev/docs/ts/cli/cli-reference
     name: Encore CLI Reference
-    type: SDK
+    type: SDKs
   - url: https://encore.dev/docs/ts/develop/client-generation
     name: Generated Client SDKs (TypeScript, Go, JavaScript)
-    type: SDK
+    type: SDKs
   - url: https://encore.dev/docs/ts/develop/api-docs
     name: Auto-Generated API Documentation
     type: Documentation
   - url: https://github.com/encoredev/homebrew-tap
     name: Homebrew Tap
-    type: SDK
+    type: SDKs
   - url: https://encore.dev/use-cases
     name: Use Cases
     type: Documentation
