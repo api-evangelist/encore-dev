@@ -132,6 +132,10 @@ apis:
       lets agents reason about and modify a running backend with full context, including verifying that a newly added
       publish call shows up in traces.
 common:
+  - type: VulnerabilityDisclosure
+    url: security/encore-dev-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/encore-dev-domain-security.yml
   - url: https://github.com/encoredev
     name: GitHub Organization
     type: GitHubOrganization
