@@ -132,6 +132,8 @@ apis:
       lets agents reason about and modify a running backend with full context, including verifying that a newly added
       publish call shows up in traces.
 common:
+  - type: AgenticAccess
+    url: agentic-access/encore-dev-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/encore-dev-vulnerability-disclosure.yml
   - type: DomainSecurity
