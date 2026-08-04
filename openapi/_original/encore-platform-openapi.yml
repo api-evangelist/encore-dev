@@ -1,0 +1,238 @@
+openapi: 3.0.3
+info:
+  title: Encore Cloud Platform API
+  version: '2026-05'
+  description: |
+    Conceptual OpenAPI representing the Encore Cloud control surface — applications,
+    environments, deployments, infrastructure resources, secrets, and trace queries —
+    as observed through the `encore` CLI and the dashboard at app.encore.cloud. Encore
+    does not publish a customer-facing REST schema, so this profile captures the
+    documented platform shape rather than a hosted endpoint list.
+  contact:
+    name: Encore
+    url: https://encore.cloud
+servers:
+- url: https://api.encore.cloud/v1
+  description: Encore Cloud control plane (illustrative)
+paths:
+  /apps:
+    get:
+      operationId: listApps
+      summary: List Encore Applications
+      description: List Encore applications the caller has access to.
+      responses:
+        '200':
+          description: List of Encore applications.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/App'
+  /apps/{app_id}/environments:
+    parameters:
+    - name: app_id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: listEnvironments
+      summary: List Environments
+      description: List environments (development, preview, staging, production) for an Encore application.
+      responses:
+        '200':
+          description: List of environments.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Environment'
+  /apps/{app_id}/environments/{env}/deployments:
+    parameters:
+    - name: app_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: env
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: listDeployments
+      summary: List Deployments
+      description: List deployments for an environment.
+      responses:
+        '200':
+          description: Deployment history.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Deployment'
+    post:
+      operationId: createDeployment
+      summary: Trigger Deployment
+      description: Trigger a new deployment of a commit to the named environment (equivalent to `git push encore`).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - commit
+              properties:
+                commit:
+                  type: string
+                  description: Git commit SHA to deploy.
+      responses:
+        '202':
+          description: Deployment accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deployment'
+  /apps/{app_id}/secrets:
+    parameters:
+    - name: app_id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: listSecrets
+      summary: List Secrets
+      description: List secret names declared by the application (values are never returned).
+      responses:
+        '200':
+          description: Secret metadata.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SecretMeta'
+    put:
+      operationId: setSecret
+      summary: Set Secret Value
+      description: Set or update a secret value for an environment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - env
+              - value
+              properties:
+                name:
+                  type: string
+                env:
+                  type: string
+                value:
+                  type: string
+      responses:
+        '204':
+          description: Secret stored.
+  /apps/{app_id}/traces:
+    parameters:
+    - name: app_id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: queryTraces
+      summary: Query Distributed Traces
+      description: Query distributed traces captured by Encore Cloud.
+      parameters:
+      - name: env
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          default: 50
+      responses:
+        '200':
+          description: Trace list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Trace'
+components:
+  schemas:
+    App:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        framework:
+          type: string
+          enum: [encore.ts, encore.go]
+        repository:
+          type: string
+    Environment:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+          enum: [development, preview, staging, production]
+        cloud:
+          type: string
+          enum: [encore, aws, gcp, self-hosted]
+        region:
+          type: string
+    Deployment:
+      type: object
+      properties:
+        id:
+          type: string
+        commit:
+          type: string
+        status:
+          type: string
+          enum: [queued, building, deploying, succeeded, failed]
+        created_at:
+          type: string
+          format: date-time
+    SecretMeta:
+      type: object
+      properties:
+        name:
+          type: string
+        environments:
+          type: array
+          items:
+            type: string
+    Trace:
+      type: object
+      properties:
+        trace_id:
+          type: string
+        root_span:
+          type: string
+        endpoint:
+          type: string
+        status:
+          type: string
+        duration_ms:
+          type: number
+        started_at:
+          type: string
+          format: date-time

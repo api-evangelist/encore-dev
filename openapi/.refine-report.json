@@ -1,0 +1,18 @@
+{
+  "provider": "encore-dev",
+  "sources": [
+    "encore-dev-apps-api-openapi.yml",
+    "encore-dev-encore-api-openapi.yml",
+    "encore-dev-encore-framework-api-api-openapi.yml"
+  ],
+  "outputs": [
+    "encore-dev-apps-api-openapi.yml",
+    "encore-dev-encore-api-openapi.yml",
+    "encore-dev-encore-framework-api-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
