@@ -1,0 +1,176 @@
+{
+  "item": [
+    {
+      "id": "8fbc6f8a-a638-4727-a9e4-1104bc72c662",
+      "name": "Encore",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "05f243be-0882-44f4-8f0c-23d6bba7810e",
+          "name": "Health Check",
+          "request": {
+            "name": "Health Check",
+            "description": {
+              "content": "Built-in liveness endpoint exposed by every Encore application for platform-level health probing.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "__encore",
+                "healthz"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d74332eb-fc08-409b-b289-a65bffa05199",
+              "name": "Application is healthy.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "__encore",
+                    "healthz"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"ok\",\n  \"message\": \"Healthy\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1aa32a8b-84f6-4a94-9c9b-a55ee99f9570",
+          "name": "Get Application Metadata",
+          "request": {
+            "name": "Get Application Metadata",
+            "description": {
+              "content": "Returns metadata describing the running Encore application — services, endpoints, databases, Pub/Sub topics, and cron jobs — as derived from the parsed source.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "__encore",
+                "meta"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e7c470aa-521b-467f-9c6d-1de433267acf",
+              "name": "Application metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "__encore",
+                    "meta"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"app_id\": \"string\",\n  \"services\": [\n    {\n      \"name\": \"string\",\n      \"endpoints\": [\n        {\n          \"name\": \"string\",\n          \"method\": \"GET\",\n          \"path\": \"/hello/:name\",\n          \"expose\": true,\n          \"auth\": false,\n          \"sensitive\": true,\n          \"raw\": true\n        },\n        {\n          \"name\": \"string\",\n          \"method\": \"GET\",\n          \"path\": \"/hello/:name\",\n          \"expose\": false,\n          \"auth\": false,\n          \"sensitive\": true,\n          \"raw\": true\n        }\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"endpoints\": [\n        {\n          \"name\": \"string\",\n          \"method\": \"GET\",\n          \"path\": \"/hello/:name\",\n          \"expose\": true,\n          \"auth\": true,\n          \"sensitive\": false,\n          \"raw\": true\n        },\n        {\n          \"name\": \"string\",\n          \"method\": \"GET\",\n          \"path\": \"/hello/:name\",\n          \"expose\": false,\n          \"auth\": false,\n          \"sensitive\": true,\n          \"raw\": false\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:4000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6ba6548e-45d2-4944-b5d7-d619607fe1c7",
+    "name": "Framework Apps Encore API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Conceptual OpenAPI describing the runtime HTTP surface that the Encore framework\n(Encore.ts and Encore.go) exposes for every Encore application. This is not a\nsingle hosted API — it is the per-application surface generated by the framework\nwhen an api() / //encore:api declaration is parsed. Real endpoints, paths, and\nschemas are app-specific.\n\n\nContact Support:\n Name: Encore",
+      "type": "text/plain"
+    }
+  }
+}

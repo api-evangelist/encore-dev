@@ -1,0 +1,730 @@
+{
+  "item": [
+    {
+      "id": "ee4a1169-152b-469d-9bb3-10fae6685df6",
+      "name": "Apps",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1db8a234-bfde-49d8-a225-a752c8eecc99",
+          "name": "List Encore Applications",
+          "request": {
+            "name": "List Encore Applications",
+            "description": {
+              "content": "List Encore applications the caller has access to.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a67e441-a774-42ce-b0be-bfc5b003b263",
+              "name": "List of Encore applications.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"framework\": \"encore.go\",\n    \"repository\": \"string\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"framework\": \"encore.ts\",\n    \"repository\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cacce398-15b6-4edc-92a6-0296397e07fe",
+          "name": "List Environments",
+          "request": {
+            "name": "List Environments",
+            "description": {
+              "content": "List environments (development, preview, staging, production) for an Encore application.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps",
+                ":app_id",
+                "environments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68622df1-0696-4d5e-84f8-86bf620d1ea1",
+              "name": "List of environments.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id",
+                    "environments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"type\": \"staging\",\n    \"cloud\": \"encore\",\n    \"region\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"type\": \"production\",\n    \"cloud\": \"self-hosted\",\n    \"region\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8ad7c227-3866-49f1-b2e3-66e9c5608573",
+          "name": "List Deployments",
+          "request": {
+            "name": "List Deployments",
+            "description": {
+              "content": "List deployments for an environment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps",
+                ":app_id",
+                "environments",
+                ":env",
+                "deployments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "env",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab7fe8cb-c1fb-4704-861f-4f82fcfaf8c7",
+              "name": "Deployment history.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id",
+                    "environments",
+                    ":env",
+                    "deployments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "env",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"commit\": \"string\",\n    \"status\": \"failed\",\n    \"created_at\": \"2015-04-10T15:00:09.962Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"commit\": \"string\",\n    \"status\": \"building\",\n    \"created_at\": \"1956-09-30T10:22:04.711Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f41bf6a-f843-43f0-a137-f467043c2d75",
+          "name": "Trigger Deployment",
+          "request": {
+            "name": "Trigger Deployment",
+            "description": {
+              "content": "Trigger a new deployment of a commit to the named environment (equivalent to `git push encore`).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps",
+                ":app_id",
+                "environments",
+                ":env",
+                "deployments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "env",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"commit\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "05a79b48-671c-4e95-b76b-82aa21d98367",
+              "name": "Deployment accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id",
+                    "environments",
+                    ":env",
+                    "deployments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "env",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"commit\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"commit\": \"string\",\n  \"status\": \"failed\",\n  \"created_at\": \"1967-07-11T14:35:33.383Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4cf35576-62c5-4be5-ac76-a6766277cb0a",
+          "name": "List Secrets",
+          "request": {
+            "name": "List Secrets",
+            "description": {
+              "content": "List secret names declared by the application (values are never returned).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps",
+                ":app_id",
+                "secrets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9f098468-57fb-4eca-a7b7-c77d4030e48a",
+              "name": "Secret metadata.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id",
+                    "secrets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"environments\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"name\": \"string\",\n    \"environments\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5adbddf8-d3fc-4d88-b536-44e3ec0b510f",
+          "name": "Set Secret Value",
+          "request": {
+            "name": "Set Secret Value",
+            "description": {
+              "content": "Set or update a secret value for an environment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps",
+                ":app_id",
+                "secrets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"env\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e7e5f3f6-d50e-48bf-b59c-604273f37f26",
+              "name": "Secret stored.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id",
+                    "secrets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"env\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12e55ec0-5fa4-494f-921b-9f2e0f5431ff",
+          "name": "Query Distributed Traces",
+          "request": {
+            "name": "Query Distributed Traces",
+            "description": {
+              "content": "Query distributed traces captured by Encore Cloud.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps",
+                ":app_id",
+                "traces"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "env",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2a701f53-cecb-4f4a-ab78-52c92bf9f89f",
+              "name": "Trace list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id",
+                    "traces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "env",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"trace_id\": \"string\",\n    \"root_span\": \"string\",\n    \"endpoint\": \"string\",\n    \"status\": \"string\",\n    \"duration_ms\": 7126.732862827279,\n    \"started_at\": \"1949-01-25T23:25:08.003Z\"\n  },\n  {\n    \"trace_id\": \"string\",\n    \"root_span\": \"string\",\n    \"endpoint\": \"string\",\n    \"status\": \"string\",\n    \"duration_ms\": 1496.4526551322954,\n    \"started_at\": \"2022-06-04T06:47:42.785Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:4000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a22ec6b1-356e-4126-a542-fc9259ce65b2",
+    "name": "Encore Framework Apps API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Conceptual OpenAPI describing the runtime HTTP surface that the Encore framework\n(Encore.ts and Encore.go) exposes for every Encore application. This is not a\nsingle hosted API — it is the per-application surface generated by the framework\nwhen an api() / //encore:api declaration is parsed. Real endpoints, paths, and\nschemas are app-specific.\n\n\nContact Support:\n Name: Encore",
+      "type": "text/plain"
+    }
+  }
+}

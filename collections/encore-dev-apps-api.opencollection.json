@@ -1,0 +1,165 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Encore Framework Apps API",
+    "version": "1.57"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Apps",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Encore Applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4000/apps"
+          },
+          "docs": "List Encore applications the caller has access to."
+        },
+        {
+          "info": {
+            "name": "List Environments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4000/apps/:app_id/environments",
+            "params": [
+              {
+                "name": "app_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List environments (development, preview, staging, production) for an Encore application."
+        },
+        {
+          "info": {
+            "name": "List Deployments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4000/apps/:app_id/environments/:env/deployments",
+            "params": [
+              {
+                "name": "app_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "env",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List deployments for an environment."
+        },
+        {
+          "info": {
+            "name": "Trigger Deployment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:4000/apps/:app_id/environments/:env/deployments",
+            "params": [
+              {
+                "name": "app_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "env",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Trigger a new deployment of a commit to the named environment (equivalent to `git push encore`)."
+        },
+        {
+          "info": {
+            "name": "List Secrets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4000/apps/:app_id/secrets",
+            "params": [
+              {
+                "name": "app_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List secret names declared by the application (values are never returned)."
+        },
+        {
+          "info": {
+            "name": "Set Secret Value",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://localhost:4000/apps/:app_id/secrets",
+            "params": [
+              {
+                "name": "app_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set or update a secret value for an environment."
+        },
+        {
+          "info": {
+            "name": "Query Distributed Traces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4000/apps/:app_id/traces",
+            "params": [
+              {
+                "name": "app_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "env",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Query distributed traces captured by Encore Cloud."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

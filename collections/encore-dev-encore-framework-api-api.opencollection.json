@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Encore Framework Apps Encore Framework API API",
+    "version": "1.57"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Encore Framework API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Invoke An Encore Endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4000/:service/:endpoint",
+            "params": [
+              {
+                "name": "service",
+                "value": "",
+                "type": "path",
+                "description": "The Encore service name (the folder containing encore.service.ts or a Go package with //encore:service)."
+              },
+              {
+                "name": "endpoint",
+                "value": "",
+                "type": "path",
+                "description": "The api() / //encore:api endpoint name within the service."
+              }
+            ]
+          },
+          "docs": "Conceptual route showing how Encore exposes any api() declaration with `expose: true`.\nThe real method, path, request schema, and response schema are derived from the developer's\nTypeScript interface or Go struct at build time.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

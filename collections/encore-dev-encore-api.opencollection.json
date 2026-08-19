@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Framework Apps Encore API",
+    "version": "1.57"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Encore",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Health Check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4000/__encore/healthz"
+          },
+          "docs": "Built-in liveness endpoint exposed by every Encore application for platform-level health probing."
+        },
+        {
+          "info": {
+            "name": "Get Application Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:4000/__encore/meta"
+          },
+          "docs": "Returns metadata describing the running Encore application — services, endpoints, databases, Pub/Sub topics, and cron jobs — as derived from the parsed source."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
