@@ -7,6 +7,15 @@ apis:
   - Backend
   - Infrastructure
   - Databases
+  - Pub-Sub
+  - Caching
+  - Object Storage
+  - Cron
+  - Secrets
+  tags_raw:
+  - Backend
+  - Infrastructure
+  - Databases
   - PubSub
   - Caching
   - ObjectStorage
@@ -63,6 +72,11 @@ apis:
 - aid: encore-dev:encore-mcp-server
   name: Encore MCP Server
   tags:
+  - Artificial Intelligence
+  - MCP
+  - Agentic AI
+  - Developer Tools
+  tags_raw:
   - AI
   - MCP
   - ModelContextProtocol
@@ -85,6 +99,8 @@ apis:
   description: The Apps API from Encore — 5 operation(s) for apps.
   humanURL: https://encore.dev/docs/ts/primitives/defining-apis
   tags:
+  - Application
+  tags_raw:
   - Apps
   properties:
   - type: OpenAPI
@@ -328,6 +344,17 @@ image: https://encore.dev/assets/branding/icon.svg
 humanURL: https://encore.dev
 baseURL: https://encore.dev
 tags:
+  - Backend
+  - Framework
+  - Cloud
+  - TypeScript
+  - Go
+  - Developer Tools
+  - Infrastructure from Code
+  - Microservices
+  - Observability
+  - Multi-Cloud
+tags_raw:
   - Backend
   - Framework
   - Cloud
