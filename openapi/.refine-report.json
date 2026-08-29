@@ -1,18 +1,38 @@
 {
   "provider": "encore-dev",
   "sources": [
-    "encore-dev-apps-api-openapi.yml",
-    "encore-dev-encore-api-openapi.yml",
-    "encore-dev-encore-framework-api-api-openapi.yml"
+    "_original/encore-framework-openapi.yml",
+    "_original/encore-platform-openapi.yml"
   ],
   "outputs": [
-    "encore-dev-apps-api-openapi.yml",
     "encore-dev-encore-api-openapi.yml",
-    "encore-dev-encore-framework-api-api-openapi.yml"
+    "encore-dev-encore-framework-api-api-openapi.yml",
+    "encore-dev-apps-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "encore-framework-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "encore-framework-openapi.yml: tagged paths GET /__encore/healthz -> Encore",
+    "encore-framework-openapi.yml: tagged paths GET /__encore/meta -> Encore",
+    "encore-framework-openapi.yml: tagged paths GET /{service}/{endpoint} -> Encore Framework API",
+    "encore-framework-openapi.yml: declared missing tag: Encore",
+    "encore-framework-openapi.yml: declared missing tag: Encore Framework API",
+    "encore-platform-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "encore-platform-openapi.yml: tagged paths GET /apps -> Apps",
+    "encore-platform-openapi.yml: tagged paths GET /apps/{app_id}/environments -> Apps",
+    "encore-platform-openapi.yml: tagged paths GET /apps/{app_id}/environments/{env}/deployments -> Apps",
+    "encore-platform-openapi.yml: tagged paths POST /apps/{app_id}/environments/{env}/deployments -> Apps",
+    "encore-platform-openapi.yml: tagged paths GET /apps/{app_id}/secrets -> Apps",
+    "encore-platform-openapi.yml: tagged paths PUT /apps/{app_id}/secrets -> Apps",
+    "encore-platform-openapi.yml: tagged paths GET /apps/{app_id}/traces -> Apps",
+    "encore-platform-openapi.yml: declared missing tag: Apps"
+  ],
+  "skipped": [
+    "encore-dev-apps-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "encore-dev-encore-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "encore-dev-encore-framework-api-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
