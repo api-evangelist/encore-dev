@@ -7,9 +7,9 @@ apis:
   - Backend
   - Infrastructure
   - Databases
-  - Pub-Sub
+  - PubSub
   - Caching
-  - Object Storage
+  - ObjectStorage
   - Cron
   - Secrets
   tags_raw:
@@ -74,8 +74,9 @@ apis:
   tags:
   - Artificial Intelligence
   - MCP
-  - Agentic AI
-  - Developer Tools
+  - ModelContextProtocol
+  - AgenticAI
+  - DeveloperTools
   tags_raw:
   - AI
   - MCP
@@ -362,8 +363,8 @@ tags:
   - Cloud
   - TypeScript
   - Go
-  - Developer Tools
-  - Infrastructure from Code
+  - DeveloperTools
+  - InfrastructureFromCode
   - Microservices
   - Observability
   - Multi-Cloud
