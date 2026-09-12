@@ -166,6 +166,8 @@ apis:
   - type: Portal
     url: https://encore.cloud
 common:
+  - type: Website
+    url: https://www.encore.dev/
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/encore/overview
   - type: AgenticAccess
