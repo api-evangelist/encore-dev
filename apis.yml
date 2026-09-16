@@ -37,12 +37,11 @@ apis:
     type: Documentation
   - url: json-schema/encore-infrastructure-resource-schema.json
     type: JSONSchema
-  description: >-
-    Encore's Infrastructure from Code API lets developers declare cloud infrastructure resources — PostgreSQL
-    databases, Pub/Sub topics and subscriptions, object storage buckets, cron jobs, caches, and secrets
-    — as typed code primitives inside their backend. Encore parses these declarations to provision matching
-    infrastructure locally (Docker-free) for development and on AWS or GCP in production via Encore Cloud,
-    without Terraform, YAML, or manual wiring.
+  description: Encore's Infrastructure from Code API lets developers declare cloud infrastructure resources
+    — PostgreSQL databases, Pub/Sub topics and subscriptions, object storage buckets, cron jobs, caches,
+    and secrets — as typed code primitives inside their backend. Encore parses these declarations to provision
+    matching infrastructure locally (Docker-free) for development and on AWS or GCP in production via
+    Encore Cloud, without Terraform, YAML, or manual wiring.
 - aid: encore-dev:encore-observability-api
   name: Encore Observability API
   tags:
@@ -63,12 +62,11 @@ apis:
     type: Documentation
   - url: json-schema/encore-trace-event-schema.json
     type: JSONSchema
-  description: >-
-    Encore captures distributed traces, structured logs, and runtime metrics automatically from every
-    api(), database query, Pub/Sub publish, cron tick, and outbound HTTP call. The local Development Dashboard
-    surfaces traces, the service catalog, an auto-generated architecture flow diagram, the database explorer,
-    and the API explorer. In production, traces and metrics ship to Encore Cloud (20M events/month included
-    on Pro) or forward to Datadog, Grafana, Sentry, and other third-party backends.
+  description: Encore captures distributed traces, structured logs, and runtime metrics automatically
+    from every api(), database query, Pub/Sub publish, cron tick, and outbound HTTP call. The local Development
+    Dashboard surfaces traces, the service catalog, an auto-generated architecture flow diagram, the database
+    explorer, and the API explorer. In production, traces and metrics ship to Encore Cloud (20M events/month
+    included on Pro) or forward to Datadog, Grafana, Sentry, and other third-party backends.
 - aid: encore-dev:encore-mcp-server
   name: Encore MCP Server
   tags:
@@ -88,12 +86,11 @@ apis:
     type: Documentation
   - url: https://modelcontextprotocol.io
     type: Documentation
-  description: >-
-    Encore ships a built-in Model Context Protocol server (`encore mcp start` for SSE, `encore mcp run`
-    for stdio) that exposes the live Encore application — services, middleware, auth handlers, databases,
-    Pub/Sub topics, cron jobs, buckets, traces, metrics, source files, and documentation — to AI agents
-    like Cursor and Claude Code. This lets agents reason about and modify a running backend with full
-    context, including verifying that a newly added publish call shows up in traces.
+  description: Encore ships a built-in Model Context Protocol server (`encore mcp start` for SSE, `encore
+    mcp run` for stdio) that exposes the live Encore application — services, middleware, auth handlers,
+    databases, Pub/Sub topics, cron jobs, buckets, traces, metrics, source files, and documentation —
+    to AI agents like Cursor and Claude Code. This lets agents reason about and modify a running backend
+    with full context, including verifying that a newly added publish call shows up in traces.
 - aid: encore-dev:encore-dev-apps-api
   name: Encore Apps API
   description: The Apps API from Encore — 5 operation(s) for apps.
@@ -120,7 +117,7 @@ apis:
   - type: Portal
     url: https://encore.cloud
 - aid: encore-dev:encore-dev-encore-api
-  name: Encore Encore API
+  name: Encore API
   description: The Encore API from Encore — 2 operation(s) for encore.
   humanURL: https://encore.dev/docs/ts/primitives/defining-apis
   tags:
@@ -143,7 +140,7 @@ apis:
   - type: Portal
     url: https://encore.cloud
 - aid: encore-dev:encore-dev-encore-framework-api-api
-  name: Encore Encore Framework API API
+  name: Encore Framework API
   description: The Encore Framework API API from Encore — 1 operation(s) for encore framework api.
   humanURL: https://encore.dev/docs/ts/primitives/defining-apis
   tags:
@@ -166,157 +163,156 @@ apis:
   - type: Portal
     url: https://encore.cloud
 common:
-  - type: Website
-    url: https://www.encore.dev/
-  - type: PostmanWorkspace
-    url: https://www.postman.com/kinlaneapi/encore/overview
-  - type: AgenticAccess
-    url: agentic-access/encore-dev-agentic-access.yml
-  - type: VulnerabilityDisclosure
-    url: security/encore-dev-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/encore-dev-domain-security.yml
-  - url: https://github.com/encoredev
-    name: GitHub Organization
-    type: GitHubOrganization
-  - url: https://github.com/encoredev/encore
-    name: Encore Framework Repository
-    type: SourceCode
-  - url: https://github.com/encoredev/examples
-    name: Encore Examples Repository
-    type: SourceCode
-  - url: https://github.com/encoredev/encore.dev
-    name: Encore Runtime API Contract
-    type: SourceCode
-  - url: https://encore.dev/docs
-    type: Documentation
-  - url: https://encore.dev/docs/ts
-    name: Encore.ts Documentation
-    type: Documentation
-  - url: https://encore.dev/docs/go
-    name: Encore.go Documentation
-    type: Documentation
-  - url: https://encore.dev/docs/ts/quick-start
-    name: TypeScript Quick Start
-    type: GettingStarted
-  - url: https://encore.dev/docs/go/quick-start
-    name: Go Quick Start
-    type: GettingStarted
-  - url: https://encore.cloud
-    name: Encore Cloud Portal
-    type: Portal
-  - url: https://encore.cloud/pricing
-    name: Encore Cloud Pricing
-    type: Pricing
-  - url: https://encore.dev/blog
-    name: Encore Engineering Blog
-    type: Blog
-  - url: https://encore.dev/changelog
-    name: Changelog
-    type: ChangeLog
-  - url: https://status.encore.cloud
-    name: Encore Cloud Status
-    type: StatusPage
-  - url: https://encore.dev/discord
-    name: Encore Discord Community
-    type: Community
-  - url: https://encore.dev/docs/ts/cli/mcp
-    name: MCP Server
-    type: Documentation
-  - url: https://encore.dev/docs/ts/ai-integration
-    name: AI Integration Guide
-    type: Documentation
-  - url: https://encore.dev/docs/ts/observability/tracing
-    name: Distributed Tracing
-    type: Documentation
-  - url: https://encore.dev/docs/ts/observability/dev-dash
-    name: Local Development Dashboard
-    type: Documentation
-  - url: https://encore.dev/docs/ts/primitives/databases
-    name: Databases (PostgreSQL)
-    type: Documentation
-  - url: https://encore.dev/docs/ts/primitives/pubsub
-    name: Pub/Sub
-    type: Documentation
-  - url: https://encore.dev/docs/ts/primitives/cron-jobs
-    name: Cron Jobs
-    type: Documentation
-  - url: https://encore.dev/docs/ts/primitives/object-storage
-    name: Object Storage
-    type: Documentation
-  - url: https://encore.dev/docs/ts/primitives/secrets
-    name: Secrets
-    type: Documentation
-  - url: https://encore.dev/docs/ts/develop/auth
-    name: Authentication
-    type: Documentation
-  - url: https://encore.dev/docs/ts/develop/middleware
-    name: Middleware
-    type: Documentation
-  - url: https://encore.dev/docs/ts/develop/streaming-apis
-    name: Streaming APIs (WebSockets)
-    type: Documentation
-  - url: https://encore.dev/docs/ts/cli/cli-reference
-    name: Encore CLI Reference
-    type: SDKs
-  - url: https://encore.dev/docs/ts/develop/client-generation
-    name: Generated Client SDKs (TypeScript, Go, JavaScript)
-    type: SDKs
-  - url: https://encore.dev/docs/ts/develop/api-docs
-    name: Auto-Generated API Documentation
-    type: Documentation
-  - url: https://github.com/encoredev/homebrew-tap
-    name: Homebrew Tap
-    type: SDKs
-  - url: https://encore.dev/use-cases
-    name: Use Cases
-    type: Documentation
-  - url: plans/encore-dev-plans-pricing.yml
-    type: Plans
-  - url: rate-limits/encore-dev-rate-limits.yml
-    type: RateLimits
-  - url: finops/encore-dev-finops.yml
-    type: FinOps
-  - url: vocabulary/encore-dev-vocabulary.yml
-    type: Vocabulary
-  - url: rules/encore-dev-rules.yml
-    type: SpectralRules
-  - type: Features
-    data:
-      - >-
-        Encore.ts — TypeScript backend framework with zero npm dependencies, claimed 9x faster than Express.js and 3x
-        faster than ElysiaJS and Hono via a Rust runtime
-      - Encore.go — Go backend framework with type-safe APIs declared via //encore:api annotations
-      - >-
-        Infrastructure from Code (IfC) — declare PostgreSQL, Pub/Sub, object storage, caches, cron jobs, and secrets as
-        typed code primitives
-      - Automatic local development environment with Docker-free database, Pub/Sub, and bucket provisioning
-      - >-
-        Local Development Dashboard with distributed tracing, API explorer, service catalog, database explorer, and
-        architecture flow diagrams
-      - Type-safe service-to-service calls with automatic service discovery and network plumbing
-      - Auto-generated client SDKs in TypeScript, Go, and JavaScript from the backend source
-      - Auto-generated API documentation and service catalog kept in sync with source
-      - Raw endpoints (api.raw) for webhooks and low-level HTTP, plus streaming endpoints for WebSockets
-      - Built-in authentication primitives and pluggable auth handlers (Clerk, Auth0, Firebase, Ory)
-      - Built-in middleware, request validation, and response shaping derived from TypeScript interfaces / Go structs
-      - Encore MCP Server exposing services, traces, metrics, source, and docs to AI agents
-      - '`encore run`, `encore build docker`, and `git push encore` for local, container, and managed deployments'
-      - Write-once / deploy-anywhere — same code runs locally, on AWS, on GCP, or self-hosted via Docker export
-      - Encore Cloud preview environments per pull request, automatic infra provisioning, and CI/CD
-      - Multi-cloud production deployments on AWS (RDS, SQS, SNS, S3) and GCP (Cloud SQL, Pub/Sub, GCS)
-      - Distributed tracing with 1M events/month free, 20M/month on Pro, forwarding to Datadog, Grafana, and Sentry
-      - SOC 2 compliance assistance and custom RBAC on Enterprise
-      - Open-source MPL-2.0 framework with ~12,000 GitHub stars and active v1.57.x release cadence
-      - Python support on the roadmap
-    sources:
-      - https://encore.dev
-      - https://encore.dev/docs/ts
-      - https://encore.dev/docs/go
-      - https://encore.cloud/pricing
-      - https://github.com/encoredev/encore
-      - https://encore.dev/blog
-    updated: '2026-05-24'
+- type: Website
+  url: https://www.encore.dev/
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/encore/overview
+- type: AgenticAccess
+  url: agentic-access/encore-dev-agentic-access.yml
+- type: VulnerabilityDisclosure
+  url: security/encore-dev-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/encore-dev-domain-security.yml
+- url: https://github.com/encoredev
+  name: GitHub Organization
+  type: GitHubOrganization
+- url: https://github.com/encoredev/encore
+  name: Encore Framework Repository
+  type: SourceCode
+- url: https://github.com/encoredev/examples
+  name: Encore Examples Repository
+  type: SourceCode
+- url: https://github.com/encoredev/encore.dev
+  name: Encore Runtime API Contract
+  type: SourceCode
+- url: https://encore.dev/docs
+  type: Documentation
+- url: https://encore.dev/docs/ts
+  name: Encore.ts Documentation
+  type: Documentation
+- url: https://encore.dev/docs/go
+  name: Encore.go Documentation
+  type: Documentation
+- url: https://encore.dev/docs/ts/quick-start
+  name: TypeScript Quick Start
+  type: GettingStarted
+- url: https://encore.dev/docs/go/quick-start
+  name: Go Quick Start
+  type: GettingStarted
+- url: https://encore.cloud
+  name: Encore Cloud Portal
+  type: Portal
+- url: https://encore.cloud/pricing
+  name: Encore Cloud Pricing
+  type: Pricing
+- url: https://encore.dev/blog
+  name: Encore Engineering Blog
+  type: Blog
+- url: https://encore.dev/changelog
+  name: Changelog
+  type: ChangeLog
+- url: https://status.encore.cloud
+  name: Encore Cloud Status
+  type: StatusPage
+- url: https://encore.dev/discord
+  name: Encore Discord Community
+  type: Community
+- url: https://encore.dev/docs/ts/cli/mcp
+  name: MCP Server
+  type: Documentation
+- url: https://encore.dev/docs/ts/ai-integration
+  name: AI Integration Guide
+  type: Documentation
+- url: https://encore.dev/docs/ts/observability/tracing
+  name: Distributed Tracing
+  type: Documentation
+- url: https://encore.dev/docs/ts/observability/dev-dash
+  name: Local Development Dashboard
+  type: Documentation
+- url: https://encore.dev/docs/ts/primitives/databases
+  name: Databases (PostgreSQL)
+  type: Documentation
+- url: https://encore.dev/docs/ts/primitives/pubsub
+  name: Pub/Sub
+  type: Documentation
+- url: https://encore.dev/docs/ts/primitives/cron-jobs
+  name: Cron Jobs
+  type: Documentation
+- url: https://encore.dev/docs/ts/primitives/object-storage
+  name: Object Storage
+  type: Documentation
+- url: https://encore.dev/docs/ts/primitives/secrets
+  name: Secrets
+  type: Documentation
+- url: https://encore.dev/docs/ts/develop/auth
+  name: Authentication
+  type: Documentation
+- url: https://encore.dev/docs/ts/develop/middleware
+  name: Middleware
+  type: Documentation
+- url: https://encore.dev/docs/ts/develop/streaming-apis
+  name: Streaming APIs (WebSockets)
+  type: Documentation
+- url: https://encore.dev/docs/ts/cli/cli-reference
+  name: Encore CLI Reference
+  type: SDKs
+- url: https://encore.dev/docs/ts/develop/client-generation
+  name: Generated Client SDKs (TypeScript, Go, JavaScript)
+  type: SDKs
+- url: https://encore.dev/docs/ts/develop/api-docs
+  name: Auto-Generated API Documentation
+  type: Documentation
+- url: https://github.com/encoredev/homebrew-tap
+  name: Homebrew Tap
+  type: SDKs
+- url: https://encore.dev/use-cases
+  name: Use Cases
+  type: Documentation
+- url: plans/encore-dev-plans-pricing.yml
+  type: Plans
+- url: rate-limits/encore-dev-rate-limits.yml
+  type: RateLimits
+- url: finops/encore-dev-finops.yml
+  type: FinOps
+- url: vocabulary/encore-dev-vocabulary.yml
+  type: Vocabulary
+- url: rules/encore-dev-rules.yml
+  type: SpectralRules
+- type: Features
+  data:
+  - Encore.ts — TypeScript backend framework with zero npm dependencies, claimed 9x faster than Express.js
+    and 3x faster than ElysiaJS and Hono via a Rust runtime
+  - Encore.go — Go backend framework with type-safe APIs declared via //encore:api annotations
+  - Infrastructure from Code (IfC) — declare PostgreSQL, Pub/Sub, object storage, caches, cron jobs, and
+    secrets as typed code primitives
+  - Automatic local development environment with Docker-free database, Pub/Sub, and bucket provisioning
+  - Local Development Dashboard with distributed tracing, API explorer, service catalog, database explorer,
+    and architecture flow diagrams
+  - Type-safe service-to-service calls with automatic service discovery and network plumbing
+  - Auto-generated client SDKs in TypeScript, Go, and JavaScript from the backend source
+  - Auto-generated API documentation and service catalog kept in sync with source
+  - Raw endpoints (api.raw) for webhooks and low-level HTTP, plus streaming endpoints for WebSockets
+  - Built-in authentication primitives and pluggable auth handlers (Clerk, Auth0, Firebase, Ory)
+  - Built-in middleware, request validation, and response shaping derived from TypeScript interfaces /
+    Go structs
+  - Encore MCP Server exposing services, traces, metrics, source, and docs to AI agents
+  - '`encore run`, `encore build docker`, and `git push encore` for local, container, and managed deployments'
+  - Write-once / deploy-anywhere — same code runs locally, on AWS, on GCP, or self-hosted via Docker export
+  - Encore Cloud preview environments per pull request, automatic infra provisioning, and CI/CD
+  - Multi-cloud production deployments on AWS (RDS, SQS, SNS, S3) and GCP (Cloud SQL, Pub/Sub, GCS)
+  - Distributed tracing with 1M events/month free, 20M/month on Pro, forwarding to Datadog, Grafana, and
+    Sentry
+  - SOC 2 compliance assistance and custom RBAC on Enterprise
+  - Open-source MPL-2.0 framework with ~12,000 GitHub stars and active v1.57.x release cadence
+  - Python support on the roadmap
+  sources:
+  - https://encore.dev
+  - https://encore.dev/docs/ts
+  - https://encore.dev/docs/go
+  - https://encore.cloud/pricing
+  - https://github.com/encoredev/encore
+  - https://encore.dev/blog
+  updated: '2026-05-24'
 deliveryModel:
   model: unknown
   open_source: unknown
@@ -343,46 +339,46 @@ accessModel:
   generated: '2026-07-22'
   method: derived
 created: '2026-05-24T00:00:00.000Z'
-modified: '2026-05-24'
+modified: '2026-09-16'
 name: Encore
 position: Producing
-description: >-
-  Encore is a backend application framework and developer cloud that lets engineering teams build type-safe distributed
-  systems in TypeScript (Encore.ts) and Go (Encore.go) using declarative Infrastructure from Code. Developers describe
-  APIs, databases, Pub/Sub, object storage, caches, cron jobs, and secrets as typed code primitives; the framework
-  provisions matching infrastructure locally with no Docker Compose, and Encore Cloud provisions equivalent managed
-  resources in the customer's own AWS or GCP account. The platform ships built-in distributed tracing, a local
-  development dashboard, auto-generated API docs and client SDKs, a Model Context Protocol server for AI agents, preview
-  environments per pull request, and CI/CD — positioning Encore as an opinionated alternative to PaaS and a productivity
-  layer on top of hyperscaler infrastructure.
+description: Encore is a backend application framework and developer cloud that lets engineering teams
+  build type-safe distributed systems in TypeScript (Encore.ts) and Go (Encore.go) using declarative Infrastructure
+  from Code. Developers describe APIs, databases, Pub/Sub, object storage, caches, cron jobs, and secrets
+  as typed code primitives; the framework provisions matching infrastructure locally with no Docker Compose,
+  and Encore Cloud provisions equivalent managed resources in the customer's own AWS or GCP account. The
+  platform ships built-in distributed tracing, a local development dashboard, auto-generated API docs
+  and client SDKs, a Model Context Protocol server for AI agents, preview environments per pull request,
+  and CI/CD — positioning Encore as an opinionated alternative to PaaS and a productivity layer on top
+  of hyperscaler infrastructure.
 image: https://encore.dev/assets/branding/icon.svg
 humanURL: https://encore.dev
 baseURL: https://encore.dev
 tags:
-  - Backend
-  - Framework
-  - Cloud
-  - TypeScript
-  - Go
-  - Developer Tools
-  - Infrastructure from Code
-  - Microservices
-  - Observability
-  - Multi-Cloud
+- Backend
+- Framework
+- Cloud
+- TypeScript
+- Go
+- Developer Tools
+- Infrastructure from Code
+- Microservices
+- Observability
+- Multi-Cloud
 tags_raw:
-  - Backend
-  - Framework
-  - Cloud
-  - TypeScript
-  - Go
-  - DeveloperTools
-  - InfrastructureFromCode
-  - Microservices
-  - Observability
-  - Multicloud
+- Backend
+- Framework
+- Cloud
+- TypeScript
+- Go
+- DeveloperTools
+- InfrastructureFromCode
+- Microservices
+- Observability
+- Multicloud
 maintainers:
-  - FN: Kin Lane
-    email: info@apievangelist.com
-    X: apievangelist
-    url: https://apievangelist.com
+- FN: Kin Lane
+  email: info@apievangelist.com
+  X: apievangelist
+  url: https://apievangelist.com
 specificationVersion: '0.23'
