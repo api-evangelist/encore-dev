@@ -6,7 +6,7 @@ apis:
   tags:
   - Backend
   - Infrastructure
-  - Databases
+  - Database
   - Pub-Sub
   - Caching
   - Object Storage
