@@ -2,16 +2,16 @@
 kin_checks:
   slug: encore-dev
   schema_version: 0.22.0
-  scored_at: '2026-09-18'
-  run_ts: 2026-09-18T231945
+  scored_at: '2026-09-19'
+  run_ts: 2026-09-19T193153
   note: Actionable checks (missed + partial) in `checks`, plus the ids that did not
     apply in `na`. Everything else in rubric/scoring-0.22.0.yml was earned; counts
     below let you verify that.
   counts:
     total: 136
-    earned: 46
-    partial: 9
-    missed: 55
+    earned: 50
+    partial: 10
+    missed: 50
     na: 26
   checks:
   - id: multiple_apis
@@ -85,8 +85,6 @@ kin_checks:
     status: missed
   - id: reg_oauth_scopes
     status: missed
-  - id: reg_authentication_documented
-    status: missed
   - id: reg_terms_of_service
     status: missed
   - id: reg_privacy_policy
@@ -103,8 +101,6 @@ kin_checks:
     status: missed
   - id: reversibility_documented
     status: missed
-  - id: auth_clarity
-    status: missed
   - id: idempotency
     status: missed
   - id: openapi_examples
@@ -120,12 +116,6 @@ kin_checks:
   - id: agent_card
     status: missed
   - id: dry_run_mode
-    status: missed
-  - id: delegated_identity
-    status: missed
-  - id: protected_resource_metadata
-    status: missed
-  - id: dynamic_client_registration
     status: missed
   - id: agentic_commerce
     status: missed
@@ -157,6 +147,10 @@ kin_checks:
     status: partial
     earned: 2.5
     detail: 'authorship: derived'
+  - id: auth_clarity
+    status: partial
+    earned: 9.0
+    detail: 'grade: served'
   - id: rate_limit_signal
     status: partial
     earned: 3.5
