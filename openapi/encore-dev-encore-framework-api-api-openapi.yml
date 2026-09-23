@@ -10,9 +10,7 @@ info:
 
     when an api() / //encore:api declaration is parsed. Real endpoints, paths, and
 
-    schemas are app-specific.
-
-    '
+    schemas are app-specific.'
   contact:
     name: Encore
     url: https://encore.dev
@@ -56,9 +54,7 @@ paths:
 
         The real method, path, request schema, and response schema are derived from the developer''s
 
-        TypeScript interface or Go struct at build time.
-
-        '
+        TypeScript interface or Go struct at build time.'
       responses:
         '200':
           description: Endpoint response shaped by the application's declared response type.

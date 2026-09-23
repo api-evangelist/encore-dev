@@ -28,7 +28,8 @@
     "encore-platform-openapi.yml: tagged paths GET /apps/{app_id}/secrets -> Apps",
     "encore-platform-openapi.yml: tagged paths PUT /apps/{app_id}/secrets -> Apps",
     "encore-platform-openapi.yml: tagged paths GET /apps/{app_id}/traces -> Apps",
-    "encore-platform-openapi.yml: declared missing tag: Apps"
+    "encore-platform-openapi.yml: declared missing tag: Apps",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "encore-dev-apps-api-openapi.yml: previously refined output, superseded by openapi/_original/",

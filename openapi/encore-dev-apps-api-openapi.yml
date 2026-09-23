@@ -10,9 +10,7 @@ info:
 
     does not publish a customer-facing REST schema, so this profile captures the
 
-    documented platform shape rather than a hosted endpoint list.
-
-    '
+    documented platform shape rather than a hosted endpoint list.'
   contact:
     name: Encore
     url: https://encore.cloud
@@ -194,49 +192,6 @@ paths:
       - Apps
 components:
   schemas:
-    SecretMeta:
-      type: object
-      properties:
-        name:
-          type: string
-        environments:
-          type: array
-          items:
-            type: string
-    Trace:
-      type: object
-      properties:
-        trace_id:
-          type: string
-        root_span:
-          type: string
-        endpoint:
-          type: string
-        status:
-          type: string
-        duration_ms:
-          type: number
-        started_at:
-          type: string
-          format: date-time
-    Deployment:
-      type: object
-      properties:
-        id:
-          type: string
-        commit:
-          type: string
-        status:
-          type: string
-          enum:
-          - queued
-          - building
-          - deploying
-          - succeeded
-          - failed
-        created_at:
-          type: string
-          format: date-time
     Environment:
       type: object
       properties:
@@ -272,3 +227,46 @@ components:
           - encore.go
         repository:
           type: string
+    Trace:
+      type: object
+      properties:
+        trace_id:
+          type: string
+        root_span:
+          type: string
+        endpoint:
+          type: string
+        status:
+          type: string
+        duration_ms:
+          type: number
+        started_at:
+          type: string
+          format: date-time
+    Deployment:
+      type: object
+      properties:
+        id:
+          type: string
+        commit:
+          type: string
+        status:
+          type: string
+          enum:
+          - queued
+          - building
+          - deploying
+          - succeeded
+          - failed
+        created_at:
+          type: string
+          format: date-time
+    SecretMeta:
+      type: object
+      properties:
+        name:
+          type: string
+        environments:
+          type: array
+          items:
+            type: string

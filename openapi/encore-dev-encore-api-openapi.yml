@@ -10,9 +10,7 @@ info:
 
     when an api() / //encore:api declaration is parsed. Real endpoints, paths, and
 
-    schemas are app-specific.
-
-    '
+    schemas are app-specific.'
   contact:
     name: Encore
     url: https://encore.dev
@@ -65,37 +63,6 @@ paths:
       - Encore
 components:
   schemas:
-    AppMetadata:
-      type: object
-      properties:
-        app_id:
-          type: string
-          description: Encore application identifier.
-        services:
-          type: array
-          items:
-            $ref: '#/components/schemas/Service'
-    Health:
-      type: object
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: string
-          example: ok
-        message:
-          type: string
-          example: Healthy
-    Service:
-      type: object
-      properties:
-        name:
-          type: string
-        endpoints:
-          type: array
-          items:
-            $ref: '#/components/schemas/Endpoint'
     Endpoint:
       type: object
       properties:
@@ -120,3 +87,34 @@ components:
         raw:
           type: boolean
           description: Whether this is a raw HTTP endpoint declared via api.raw().
+    Health:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+          example: ok
+        message:
+          type: string
+          example: Healthy
+    Service:
+      type: object
+      properties:
+        name:
+          type: string
+        endpoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/Endpoint'
+    AppMetadata:
+      type: object
+      properties:
+        app_id:
+          type: string
+          description: Encore application identifier.
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/Service'

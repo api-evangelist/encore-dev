@@ -1,0 +1,29 @@
+# Front Door AI Index — encore-dev — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: encore-dev
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.encore.dev
+  final_host: encore.dev
+  ownership: inherited
+  owner: encore-dev
+  shares_host_with: null
+  inherited_from: encore.dev
+  verdict: scored
+  score: null
+  host_score: 3
+  density: null
+  words: 1039
+  tiers:
+    agentic: 2
+    core: 1
+    model: 0
+  ambiguous: 9
+  top_terms:
+    agent: 8
+    AI agent: 1
+    AI: 1
+    MCP: 1
+    automation: 1

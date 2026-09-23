@@ -1,0 +1,1 @@
+{"authorization_servers":["https://api.encore.dev"],"resource":"https://api.encore.dev/mcp","scopes_supported":["mcp.use","apps.view","envs.view","traces.view","code.view","sqldb.connect_reader","secrets.list","crons.view","traces.list"]}
