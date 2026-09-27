@@ -72,7 +72,7 @@ apis:
   tags:
   - Artificial Intelligence
   - MCP
-  - Agentic AI
+  - AI Agents
   - Developer Tools
   tags_raw:
   - AI
@@ -80,6 +80,7 @@ apis:
   - ModelContextProtocol
   - AgenticAI
   - DeveloperTools
+  - Agentic AI
   humanURL: https://encore.dev/docs/ts/cli/mcp
   properties:
   - url: https://encore.dev/docs/ts/cli/mcp
@@ -314,17 +315,22 @@ common:
   - https://encore.dev/blog
   updated: '2026-05-24'
 deliveryModel:
-  model: unknown
-  open_source: unknown
+  model: open-core
+  license: MPL-2.0
+  license_evidence:
+    repo: encoredev/encore
+    spdx: MPL-2.0
+    stars: 12388
+  open_source: true
   commercial: true
   callable_host: true
-  label: Delivery model not determined — needs a product licence on record
-  confidence: low
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: medium
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-license
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium
