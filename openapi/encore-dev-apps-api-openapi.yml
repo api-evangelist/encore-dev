@@ -192,20 +192,22 @@ paths:
       - Apps
 components:
   schemas:
-    Trace:
+    Deployment:
       type: object
       properties:
-        trace_id:
+        id:
           type: string
-        root_span:
-          type: string
-        endpoint:
+        commit:
           type: string
         status:
           type: string
-        duration_ms:
-          type: number
-        started_at:
+          enum:
+          - queued
+          - building
+          - deploying
+          - succeeded
+          - failed
+        created_at:
           type: string
           format: date-time
     Environment:
@@ -229,6 +231,22 @@ components:
           - self-hosted
         region:
           type: string
+    Trace:
+      type: object
+      properties:
+        trace_id:
+          type: string
+        root_span:
+          type: string
+        endpoint:
+          type: string
+        status:
+          type: string
+        duration_ms:
+          type: number
+        started_at:
+          type: string
+          format: date-time
     SecretMeta:
       type: object
       properties:
@@ -252,21 +270,3 @@ components:
           - encore.go
         repository:
           type: string
-    Deployment:
-      type: object
-      properties:
-        id:
-          type: string
-        commit:
-          type: string
-        status:
-          type: string
-          enum:
-          - queued
-          - building
-          - deploying
-          - succeeded
-          - failed
-        created_at:
-          type: string
-          format: date-time

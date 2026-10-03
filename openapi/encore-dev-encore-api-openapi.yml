@@ -87,15 +87,6 @@ components:
         raw:
           type: boolean
           description: Whether this is a raw HTTP endpoint declared via api.raw().
-    Service:
-      type: object
-      properties:
-        name:
-          type: string
-        endpoints:
-          type: array
-          items:
-            $ref: '#/components/schemas/Endpoint'
     AppMetadata:
       type: object
       properties:
@@ -118,3 +109,12 @@ components:
         message:
           type: string
           example: Healthy
+    Service:
+      type: object
+      properties:
+        name:
+          type: string
+        endpoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/Endpoint'

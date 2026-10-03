@@ -78,6 +78,10 @@ paths:
       - Encore Framework API
 components:
   schemas:
+    EndpointResponse:
+      type: object
+      description: Placeholder for the application-specific response shape derived from the declared response type.
+      additionalProperties: true
     Error:
       type: object
       required:
@@ -96,7 +100,3 @@ components:
           items:
             type: object
             additionalProperties: true
-    EndpointResponse:
-      type: object
-      description: Placeholder for the application-specific response shape derived from the declared response type.
-      additionalProperties: true
