@@ -63,6 +63,18 @@ paths:
       - Encore
 components:
   schemas:
+    Health:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+          example: ok
+        message:
+          type: string
+          example: Healthy
     Endpoint:
       type: object
       properties:
@@ -97,18 +109,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Service'
-    Health:
-      type: object
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: string
-          example: ok
-        message:
-          type: string
-          example: Healthy
     Service:
       type: object
       properties:

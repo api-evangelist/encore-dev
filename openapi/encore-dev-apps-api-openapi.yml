@@ -210,6 +210,45 @@ components:
         created_at:
           type: string
           format: date-time
+    Trace:
+      type: object
+      properties:
+        trace_id:
+          type: string
+        root_span:
+          type: string
+        endpoint:
+          type: string
+        status:
+          type: string
+        duration_ms:
+          type: number
+        started_at:
+          type: string
+          format: date-time
+    App:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        framework:
+          type: string
+          enum:
+          - encore.ts
+          - encore.go
+        repository:
+          type: string
+    SecretMeta:
+      type: object
+      properties:
+        name:
+          type: string
+        environments:
+          type: array
+          items:
+            type: string
     Environment:
       type: object
       properties:
@@ -230,43 +269,4 @@ components:
           - gcp
           - self-hosted
         region:
-          type: string
-    Trace:
-      type: object
-      properties:
-        trace_id:
-          type: string
-        root_span:
-          type: string
-        endpoint:
-          type: string
-        status:
-          type: string
-        duration_ms:
-          type: number
-        started_at:
-          type: string
-          format: date-time
-    SecretMeta:
-      type: object
-      properties:
-        name:
-          type: string
-        environments:
-          type: array
-          items:
-            type: string
-    App:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        framework:
-          type: string
-          enum:
-          - encore.ts
-          - encore.go
-        repository:
           type: string
