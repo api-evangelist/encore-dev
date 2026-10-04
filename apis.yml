@@ -164,6 +164,9 @@ apis:
   - type: Portal
     url: https://encore.cloud
 common:
+- type: CapabilityMap
+  url: capabilities/encore-dev-capability-edges.yml
+  name: Encore Business Capability Map
 - type: Website
   url: https://www.encore.dev/
 - type: PostmanWorkspace
