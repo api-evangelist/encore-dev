@@ -7,14 +7,17 @@ front_door_ai:
   probed_at: '2026-09-17'
   host: www.encore.dev
   final_host: encore.dev
-  ownership: inherited
+  ownership: own
   owner: encore-dev
   shares_host_with: null
-  inherited_from: encore.dev
+  inherited_from: null
+  alias_of: encore.dev
   verdict: scored
-  score: null
+  score: 3
+  band: 3
+  band_label: light
   host_score: 3
-  density: null
+  density: 2.89
   words: 1039
   tiers:
     agentic: 2
