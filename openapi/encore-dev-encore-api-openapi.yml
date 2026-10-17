@@ -63,18 +63,16 @@ paths:
       - Encore
 components:
   schemas:
-    Health:
+    AppMetadata:
       type: object
-      required:
-      - code
-      - message
       properties:
-        code:
+        app_id:
           type: string
-          example: ok
-        message:
-          type: string
-          example: Healthy
+          description: Encore application identifier.
+        services:
+          type: array
+          items:
+            $ref: '#/components/schemas/Service'
     Endpoint:
       type: object
       properties:
@@ -99,16 +97,6 @@ components:
         raw:
           type: boolean
           description: Whether this is a raw HTTP endpoint declared via api.raw().
-    AppMetadata:
-      type: object
-      properties:
-        app_id:
-          type: string
-          description: Encore application identifier.
-        services:
-          type: array
-          items:
-            $ref: '#/components/schemas/Service'
     Service:
       type: object
       properties:
@@ -118,3 +106,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Endpoint'
+    Health:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+          example: ok
+        message:
+          type: string
+          example: Healthy
