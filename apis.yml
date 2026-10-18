@@ -7,7 +7,7 @@ apis:
   - Backend
   - Infrastructure
   - Database
-  - Pub-Sub
+  - Pub/Sub
   - Caching
   - Object Storage
   - Cron
