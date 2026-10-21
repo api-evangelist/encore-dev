@@ -116,6 +116,25 @@ edges:
   detected: '2026-10-20'
   detected_by: mirror-platform-listings.py
   category: IDE / developer extension marketplace listing
+- partner_name: Terraform (terraform-registry)
+  partner: terraform
+  partner_match: mirror
+  mirror_match: register
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: terraform-registry
+  evidence: https://registry.terraform.io/providers/encoredev/encore
+  mirror_of: terraform/integrations/terraform-integration-edges.yml
+  apps:
+  - encoredev/encore
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: infrastructure-as-code provider registry listing
+  badges:
+  - Verified publisher (GitHub domain-verified organization)
 generated: '2026-10-15'
 method: searched
 source:
@@ -132,3 +151,4 @@ checked:
 - https://skillsmp.com/sitemap.xml
 - https://www.skills.sh/sitemap.xml
 - jetbrains/integrations/jetbrains-integration-edges.yml
+- terraform/integrations/terraform-integration-edges.yml
